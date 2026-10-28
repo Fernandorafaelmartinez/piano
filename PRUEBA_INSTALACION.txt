@@ -1,0 +1,18 @@
+
+Comprobando las pruebas del lenguaje…
+----------------------------------------------------------------------
+Ran 66 tests in 0.119s
+
+OK
+66/66 pruebas correctas
+
+Generando PDF, MIDI, WAV y MP3 de prueba…
+Hello Bazilio
+
+Instalación terminada en: /tmp/bazilio-musica-install-pm2_ky9y/instalado
+Ejecutar: /tmp/bazilio-musica-install-pm2_ky9y/instalado/bazilio /tmp/bazilio-musica-install-pm2_ky9y/instalado/ejemplos/del_enunciado/hello.bzl --salida /tmp/bazilio-musica-install-pm2_ky9y/instalado/salidas
+Generado: /tmp/bazilio-musica-install-pm2_ky9y/instalado/salidas/prueba/hello.ly
+Generado: /tmp/bazilio-musica-install-pm2_ky9y/instalado/salidas/prueba/hello.pdf
+Generado: /tmp/bazilio-musica-install-pm2_ky9y/instalado/salidas/prueba/hello.midi
+Generado: /tmp/bazilio-musica-install-pm2_ky9y/instalado/salidas/prueba/hello.wav
+Generado: /tmp/bazilio-musica-install-pm2_ky9y/instalado/salidas/prueba/hello.mp3

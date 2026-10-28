@@ -1,0 +1,26 @@
+# Entornos virtuales
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Instaladores y archivos pesados
+*.run
+*.run.sha256
+*.whl
+
+# Configuracion local
+.env
+.env.*
+.vscode/
+
+# Archivos temporales
+*.log
+
+# Archivos auxiliares generados por ANTLR4
+.antlr/
+*.interp
+*.tokens

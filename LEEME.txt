@@ -1,0 +1,92 @@
+BAZILIO — INSTALADOR PARA LINUX
+
+1. Copia Bazilio-Linux.run a la computadora de destino.
+2. Abre una terminal en esa carpeta y ejecuta:
+
+   bash Bazilio-Linux.run
+
+No hace falta marcarlo como ejecutable. Ejecútalo como usuario normal:
+el instalador pedirá sudo únicamente para instalar paquetes del sistema.
+
+INSTALACIÓN
+- Destino: ~/.local/share/bazilio
+- Acceso: ~/.local/bin/bazilio (si no existe previamente).
+- No modifica tu PATH ni sobrescribe instalaciones existentes.
+- Incluye el runtime oficial ANTLR 4.13.2 con su licencia.
+- No necesita Java ni generar de nuevo el parser para ejecutar programas.
+- Ejecuta las 66 pruebas del lenguaje y una conversión musical de prueba.
+- Los archivos de prueba quedan en ~/.local/share/bazilio/salidas/prueba/.
+
+EJECUTAR
+
+   ~/.local/bin/bazilio ~/.local/share/bazilio/ejemplos/del_enunciado/hello.bzl --salida "$HOME/Musica/Bazilio"
+
+Abre hello.pdf o hello.mp3 en esa carpeta. Si ~/.local/bin está en el PATH,
+puedes escribir simplemente bazilio en lugar de ~/.local/bin/bazilio.
+El programa recibe archivos .bzl; es una herramienta de terminal.
+
+COMPATIBILIDAD Y REQUISITOS
+El código y ANTLR son independientes de la arquitectura; los binarios musicales
+se obtienen de los repositorios de la distribución, tanto en x86_64 como en ARM
+si esos repositorios ofrecen los paquetes.
+
+Instalación automática preparada para:
+- Ubuntu, Debian y derivados como Linux Mint: apt-get.
+- Fedora: dnf.
+- Arch Linux y derivados como Manjaro: pacman.
+- openSUSE: zypper.
+
+Requiere Bash, tar, gzip, coreutils, Python 3.10 o posterior y, para música,
+LilyPond compatible con partituras 2.24.3, TiMidity++, un banco SF2 y ffmpeg
+con el codificador libmp3lame. Requiere Internet y permisos de administrador
+si faltan paquetes. Se recomienda disponer de 1 GB de espacio libre.
+
+No puede garantizarse funcionamiento en TODAS las distribuciones Linux:
+versiones antiguas, distribuciones inmutables, repositorios deshabilitados
+o paquetes/codificadores ausentes pueden requerir instalación manual.
+No añade repositorios externos ni actualiza todo el sistema automáticamente.
+Si pacman informa que un paquete ya no existe, actualiza Arch siguiendo
+su procedimiento habitual y vuelve a ejecutar el instalador.
+
+Los flujos de instalación y conversión se probaron en este equipo Arch;
+no se ejecutaron pruebas dentro de cada una de las otras distribuciones.
+
+OTRAS OPCIONES
+
+Solo el intérprete, usando un Python 3.10+ ya instalado, sin Internet ni sudo:
+   bash Bazilio-Linux.run --solo-interprete --sin-paquetes
+Luego usa --sin-musica o --solo-ly al ejecutar programas musicales.
+
+Si todas las dependencias del sistema ya están instaladas:
+   bash Bazilio-Linux.run --sin-paquetes
+
+Instalar en una carpeta diferente (debe ser nueva):
+   bash Bazilio-Linux.run --prefix "$HOME/Bazilio"
+
+Extraer el código sin instalar ni ejecutar nada:
+   bash Bazilio-Linux.run --extract "$HOME/Bazilio-codigo"
+
+Verificar integridad:
+   bash Bazilio-Linux.run --check
+   sha256sum -c Bazilio-Linux.run.sha256
+
+Mostrar ayuda:
+   bash Bazilio-Linux.run --help
+
+SI FALLA EL AUDIO
+El intérprete detecta bancos SF2 en /usr/share/sounds/sf2,
+/usr/share/soundfonts y /usr/share/sounds/sfbank.
+Puedes indicar otro banco con --soundfont /ruta/banco.sf2.
+Si la instalación termina con error de conversión, el código queda instalado;
+consulta salidas/prueba/hello.conversion.log y corrige las dependencias.
+No necesitas reinstalar el código para volver a probarlo.
+
+DESINSTALAR
+Elimina la carpeta que elegiste y el enlace ~/.local/bin/bazilio si corresponde
+a esta instalación. Conserva antes los programas y resultados que quieras guardar.
+Los paquetes del sistema no se desinstalan, porque pueden usarlos otros programas.
+
+FUENTES DE PAQUETES
+https://packages.ubuntu.com/en/questing/timidity
+https://packages.fedoraproject.org/pkgs/fluid-soundfont/fluid-soundfont-gm/
+https://build.opensuse.org/package/show/openSUSE:Leap:15.6/fluid-soundfont
